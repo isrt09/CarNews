@@ -79,11 +79,11 @@
                         </div>
                         <div class="col-md-9">
                             <div class="nav-wrapper">
-                                <nav class="main-navigation">
+                                <nav class="main-navigation">                                    
                                     <ul class="main-menu">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="about-us.html">about us</a> </li>
-                                        <li><a href="contact-us">Contact Us</a></li>
+                                        <?php wp_nav_menu([
+                                            'theme_location' => 'header_top_menu'
+                                        ]); ?>
                                     </ul>
                                 </nav>
                             </div>
