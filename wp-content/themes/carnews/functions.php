@@ -7,3 +7,4 @@
 	}
 	add_action('init','carnews_register_menu');
  ?>
+
