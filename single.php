@@ -11,11 +11,12 @@
                         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                     <div class="single-page-details">
                         <h2><?php the_title(); ?></h2>
-                        <p><img class="img-responsive" title="Tooltip on left" src="<?php echo get_template_directory_uri(); ?>/images/resource/blog-2.jpg" alt="">
-                            <?php the_content(); ?>
+                            <?php the_post_thumbnail();?>
+                            <?php the_content(); ?>                            
                         </p>
                     </div>
-					<?php endwhile ?>
+					<?php endwhile; else : ?>
+                    <p><?php _e( 'Sorry, no posts matched your criteria.', 'carnews' );  ?></p>
                     <?php endif; ?>        
                     <div class="col-md-12">
                         <div class="comment-area">
@@ -96,6 +97,7 @@
                         </div>
                     </div>
                     </div>
+                    <?php the_posts_pagination(); ?>
                     <?php get_sidebar(); ?>
                 </div>               
             </div>

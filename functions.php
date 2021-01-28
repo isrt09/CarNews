@@ -9,3 +9,6 @@ function carnewsMenu(){
 	}
 }
 add_action('init','carnewsMenu');
+
+add_theme_support('post-thumbnails', array('post','page'));
+set_post_thumbnail_size(400,300,true);
