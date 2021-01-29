@@ -1,11 +1,10 @@
-<?php get_header(); ?>
-    <?php get_template_part('slider'); ?>
+<?php get_header(); ?>    
     <!-- News / Blog section  
     ============================================= -->
     <div id="news-area" class="section-gray pdb-28 news-section-single">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 ftl">                   
+                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 ftl">                     
                     <div class="row">
                         <?php 
                         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>                                 
@@ -13,7 +12,7 @@
                         <div class="post-box">
                         <div class="inner-post-box">
                             <div class="image-box">
-                               <?php the_post_thumbnail(array('class' => 'post-thumb'));?>
+                               <?php the_post_thumbnail();?>
                                 <div class="post-caption transition7s">
                                     <ul>
                                         <li><i class="fa fa-user"></i> <?php the_author(); ?></li>
@@ -25,7 +24,7 @@
                             <div class="content">
                                 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?> </a></h3>
                                 <div class="text-des">
-                                <?php the_excerpt(); ?>
+                                <?php the_content(); ?>
                                 </div>
                             </div>
                             <div class="post-info clearfix">
