@@ -81,54 +81,13 @@
             </div>
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="footer-widget">
-                        <h2 class="widget-title">Car Care </h2>
-                        <p>Lorem ipsum dolor sit amet, consecting elit, sed diam nonummy nibhnt.</p>
-                        <ul class="get-tuch">
-                            <li><i class="fa fa-map-marker"></i> House 248/1, Road No-27, Nirala R/A, Khulna, Khulna-9200.</li>
-                            <li><i class="fa fa-phone-square"></i> Mobile: <a href="#">+001911 - 467325</a></li>
-                            <li><i class="fa fa-envelope"></i> Email: <a href="#">info@domain.com</a></li>
-                        </ul>
-                        <div class="social-icon">
-                            <ul>
-                                <li class="transition7s"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li class="transition7s"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li class="transition7s"><a href="#"><i class="fa fa-skype"></i></a></li>
-                                <li class="transition7s"><a href="#"><i class="fa fa-rss"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <?php dynamic_sidebar( 'widget-footer-1' ); ?>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="footer-widget">
-                        <h2 class="widget-title">Our Services</h2>
-                        <ul>
-                            <li><a href="#">Car repair and change service</a></li>
-                            <li><a href="#">Car selling and buying service</a></li>
-                            <li><a href="#">Test driving and speed test</a></li>
-                            <li><a href="#">Car cleaning and washing</a></li>
-                            <li><a href="#">Yearly car inspection view</a></li>
-                            <li><a href="#">Car selling and buying service</a></li>
-                            <li><a href="#">Test driving and speed test</a></li>
-                            <li><a href="#">Car cleaning and washing</a></li>
-                        </ul>
-                    </div>
+                     <?php dynamic_sidebar( 'widget-footer-2' ); ?>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="footer-widget">
-                        <h2 class="widget-title">Our Support</h2>
-                        <ul>
-                            <li><a href="#">Customer testimonials</a></li>
-                            <li><a href="#">Get a free quote</a></li>
-                            <li><a href="#">Help &amp; Support Center</a></li>
-                            <li><a href="#">How to get started?</a></li>
-                            <li><a href="#">Frequently asked questions</a></li>
-                            <li><a href="#">Get a free quote</a></li>
-                            <li><a href="#">Help &amp; Support Center</a></li>
-                            <li><a href="#">How to get started?</a></li>
-
-                        </ul>
-                    </div>
+                     <?php dynamic_sidebar( 'widget-footer-3' ); ?>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="footer-widget">
@@ -159,9 +118,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                    <div class="copyright">
-                        <p>&copy; Copyright 2021, All Rights Reserved</p>
-                    </div>
+                    <?php dynamic_sidebar( 'widget-footer-copyright' ); ?>
                 </div>
             </div>
         </div>
