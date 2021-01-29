@@ -12,11 +12,16 @@
         <div class="siderbar-widget">
             <h4 class="sidebar-widget-title">Category</h4>
             <ul>
-                <li><a href="#">Higher Education<span>(15)</span></a></li>
-                <li><a href="#">Healthcare <span>(112)</span></a></li>
-                <li><a href="#">Senior Living <span>(4)</span></a></li>
-                <li><a href="#">Commercial <span>(14)</span></a></li>
-                <li><a href="#">Speciality <span>(90)</span></a></li>
+                <?php 
+                    $args = array(
+                        'orderby' => 'slug',
+                        'parent'  => 0
+                    );
+                    $categories = get_categories($ars);
+                    foreach($categories as $category){
+                        echo "<li><a href='".get_category_link($category->term_id)."'>".$category->name."</a></li>";
+                    }
+                 ?>                
             </ul>
         </div>
         <div class="siderbar-widget">
