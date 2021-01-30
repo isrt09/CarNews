@@ -27,45 +27,53 @@
         <div class="siderbar-widget">
             <h4 class="sidebar-widget-title">ARCHIVES</h4>
             <ul>
-                <li><a href="#">January 2017 <span>(15)</span></a></li>
-                <li><a href="#">Februaty 2017 <span>(112)</span></a></li>
-                <li><a href="#">March 2017 <span>(4)</span></a></li>
-                <li><a href="#">April 2017<span>(14)</span></a></li>
-                <li><a href="#">May 2017 <span>(90)</span></a></li>
+               <?php wp_get_archives(array('type'=>'monthly','order'=>'ASC','limit'=>12));?>
             </ul>
         </div>
         <div class="siderbar-widget">
-            <h4 class="sidebar-widget-title">RECENT NEWS</h4>
+            <h4 class="sidebar-widget-title"><?php _e("RECENT NEWS"); ?></h4>
+            <?php 
+            $recent_news = new WP_Query(array(
+                "post_type"     => "post",                
+                'orderby'       => 'title',
+                'order'         => 'ASC',
+                'posts_per_page'=>  3                 
+            ));
+            if($recent_news->have_posts()) : while( $recent_news->have_posts() ) : $recent_news->the_post(); ?>
             <div class="widget-news">
-                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/resource/blog-1.jpg" alt=""></a>
+                <a href="#"><?php the_post_thumbnail(array('class' => 'post-thumb'));?></a>
                 <div class="news-text">
-                    <p>The Act makes provision for the interpretation of Acts of Parliament.</p>
-                    <a class="" href="#">Read More</a>
+                    <p><?php the_title(); ?></p>
+                    <a class="" href="<?php the_permalink(); ?>"><?php _e("Read More"); ?></a>
                 </div>
             </div>
+            <?php endwhile; ?>
+            <?php endif; ?>            
+        </div>
+         <div class="siderbar-widget">
+            <h4 class="sidebar-widget-title"><?php _e("POPULAR NEWS"); ?></h4>
+            <?php 
+            $recent_news = new WP_Query(array(
+                "post_type"     => "post",                
+                'orderby'       =>  rand,
+                'order'         => 'DESC',
+                'posts_per_page'=>  3                 
+            ));
+            if($recent_news->have_posts()) : while( $recent_news->have_posts() ) : $recent_news->the_post(); ?>
             <div class="widget-news">
-                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/resource/blog-2.jpg" alt=""></a>
+                <a href="#"><?php the_post_thumbnail(array('class' => 'post-thumb'));?></a>
                 <div class="news-text">
-                    <p>The Act makes provision for the interpretation of Acts of Parliament.</p>
-                    <a class="" href="#">Read More</a>
+                    <p><?php the_title(); ?></p>
+                    <a class="" href="<?php the_permalink(); ?>"><?php _e("Read More"); ?></a>
                 </div>
             </div>
-            <div class="widget-news">
-                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/resource/blog-3.jpg" alt=""></a>
-                <div class="news-text">
-                    <p>The Act makes provision for the interpretation of Acts of Parliament.</p>
-                    <a class="" href="#">Read More</a>
-                </div>
-            </div>
+            <?php endwhile; ?>
+            <?php endif; ?>            
         </div>
         <div class="siderbar-widget">
             <h4 class="sidebar-widget-title">Tags</h4>
-            <ul class="tag-list">
-                <li><a class="active transition7s" href="#">HTML</a></li>
-                <li><a class="transition7s" href="#">CSS3</a></li>
-                <li><a class="transition7s" href="#">PHP</a></li>
-                <li><a class="transition7s" href="#">Wordpress</a></li>
-                <li><a class="transition7s" href="#">Joomla</a></li>
+            <ul class="tag-list">                
+                <?php the_tags('<li>'," ",'</li>'); ?>               
             </ul>
         </div>
     </div>
