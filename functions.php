@@ -13,7 +13,17 @@ add_action('init','carnewsMenu');
 add_theme_support('post-thumbnails', array('post','page'));
 set_post_thumbnail_size(400,500,true);
 
+
+
 function car_widgets(){
+		register_sidebar( array(
+			'name'          => __( 'Calender', 'carnews' ),
+			'id'            => 'widget-calender',
+			'before_widget' => '<div class="footer-widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2> ',
+		) );
 		register_sidebar( array(
 		'name'          => __( 'Footer Widget-1', 'carnews' ),
 		'id'            => 'widget-footer-1',
@@ -42,6 +52,14 @@ function car_widgets(){
 		'name'          => __( 'Footer Copyright', 'carnews' ),
 		'id'            => 'widget-footer-copyright',
 		'before_widget' => '<div class="copyright">',
+		'after_widget'  => '</div>',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
+		register_sidebar( array(
+		'name'          => __( 'Emergency Call', 'carnews' ),
+		'id'            => 'widget-footer-emergecy',
+		'before_widget' => '<div class="emergency-call mrb-50">',
 		'after_widget'  => '</div>',
 		'before_title'  => '',
 		'after_title'   => '',

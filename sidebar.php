@@ -10,6 +10,10 @@
             </div>
         </div>
         <div class="siderbar-widget">
+            <h4 class="sidebar-widget-title">Calendar</h4>
+            <?php dynamic_sidebar( 'widget-calender' ); ?>             
+        </div>
+        <div class="siderbar-widget">
             <h4 class="sidebar-widget-title">Category</h4>
             <ul>
                 <?php 
