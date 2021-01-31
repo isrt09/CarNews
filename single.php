@@ -17,7 +17,55 @@
                     </div>
 					<?php endwhile; else : ?>
                     <p><?php _e( 'Sorry, no posts matched your criteria.', 'carnews' );  ?></p>
-                    <?php endif; ?>        
+                    <?php endif; ?>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="bio-info-area">
+                                <h4><span><?php _e( 'Author : ', 'carnews' );  ?><a href="<?php get_author_posts_url(get_the_author_meta("ID")); ?>"><?php the_author();?></a></span>  <strong><?php _e( 'Total post : ', 'carnews' );  ?><?php the_author_posts(); ?></strong></h4>
+                                <?php echo get_avatar(get_the_author_meta('ID')); ?>
+                                 <?php the_author_meta('description'); ?>                                                       
+                                <div class="author-info">
+                                    <ul>
+                                        <li><a href="#">View Author All Post</a> </li>
+                                        <li><a href="http://www.twitter.com/ruhul2s">Twitter</a> </li>
+                                        <li><a href="http://www.facebook.com/ruhul2s">Facebook</a> </li>
+                                        <li><a href="http://www.googlePlus.com/ruhul2s">Google Plus</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">                       
+                        <div class="col-md-12">
+                            <div class="related_post_area">
+                                <h3><?php _e("Related Posts"); ?></h3> 
+                        <?php 
+                               $tags = wp_get_post_tags($post->ID);
+                               if($tags){
+                                   $first_tag = $tags[0]->term_id;
+                                    $first_tag = new WP_Query(array(
+                                        'tag_in'       => array($first_tag),
+                                        'post_not_in'  => array($post->ID),
+                                        'posts_per_page'=> 3,
+                                        'caller_get_posts'=>1
+                                    ));
+                                if($first_tag->have_posts()){
+                                    while($first_tag->have_posts()){
+                                        $first_tag->the_post(); ?>
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                <div class="related_post_item">
+                                                    <?php the_post_thumbnail(array('class' => 'post-thumb'));?>
+                                                    <h2><a href=""><?php the_title(); ?></a></h2>
+                                                   <?php the_excerpt(); ?>
+                                                </div>
+                                            </div>                                                                       
+                                    <?php }
+                                    wp_reset_query();
+                                }
+                              }
+                        ?>  </div>
+                        </div>                                            
+                    </div>                        
                     <div class="col-md-12">
                         <div class="comment-area">
                             <h2 class="page-header">Comments</h2>
