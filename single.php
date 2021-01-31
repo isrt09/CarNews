@@ -21,15 +21,15 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="bio-info-area">
-                                <h4><span><?php _e( 'Author : ', 'carnews' );  ?><a href="<?php get_author_posts_url(get_the_author_meta("ID")); ?>"><?php the_author();?></a></span>  <strong><?php _e( 'Total post : ', 'carnews' );  ?><?php the_author_posts(); ?></strong></h4>
+                                <h4><span><?php _e( 'Author : ', 'carnews' );  ?><a href="<?php get_author_posts_url(get_the_author_meta("ID")); ?>"><?php the_author();?></a></span><strong><?php _e( 'Total post : ', 'carnews' );  ?><?php the_author_posts(); ?></strong></h4>
                                 <?php echo get_avatar(get_the_author_meta('ID')); ?>
                                  <?php the_author_meta('description'); ?>                                                       
                                 <div class="author-info">
                                     <ul>
-                                        <li><a href="#">View Author All Post</a> </li>
-                                        <li><a href="http://www.twitter.com/ruhul2s">Twitter</a> </li>
-                                        <li><a href="http://www.facebook.com/ruhul2s">Facebook</a> </li>
-                                        <li><a href="http://www.googlePlus.com/ruhul2s">Google Plus</a> </li>
+                                        <li><a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta("ID")));?>"><?php _e('View Author All Post'); ?></a> </li>
+                                        <li><a href="<?php the_author_meta('twitter'); ?>"><?php _e('Twitter'); ?></a> </li>
+                                        <li><a href="<?php the_author_meta('facebook'); ?>"><?php _e('Facebook'); ?></a> </li>
+                                        <li><a href="<?php the_author_meta('youtube'); ?>"><?php _e('YouTube'); ?></a> </li>
                                     </ul>
                                 </div>
                             </div>
